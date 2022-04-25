@@ -1,0 +1,17 @@
+{
+  "env": {
+     "baseUrl": "https://mail.google.com",
+     "username": "davit.mkhitaryan.testprofile",
+     "password": "a&sTE9R1X&Obe9I3L!"
+ },
+   "watchForFileChanges": false,
+   "video": false,
+   "pluginsFile": "cypress/plugins/index.ts",
+   "reporter": "mochawesome",
+    "reporterOptions": {
+       "reportDir": "report_files",
+       "overwrite": false,
+       "html": false,
+       "json": true
+    }
+ }
