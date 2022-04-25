@@ -33,11 +33,11 @@ describe("Gmail Demo Tests Suite", () => {
             expect(response.body.access_token).to.exist;
             let token: string = response.body.access_token;
 
-            cy.listMessagesInGoogleAccount("davit.mkhitaryan.testprofile@gmail.com", token).then((response) => {
+            cy.listMessagesInGoogleAccount(sendEmailData.demoGmailAccountData.user, token).then((response) => {
                 expect(response.body.messages[0]).to.exist;
                 let msgId = response.body.messages[0].id;
 
-                cy.getGmail("davit.mkhitaryan.testprofile@gmail.com", msgId, token).then((response) => {
+                cy.getGmail(sendEmailData.demoGmailAccountData.user, msgId, token).then((response) => {
                     expect(response.body.id).to.eq(msgId);
 
                     expect(response.body.payload.headers[5].value).to.eq(sendEmailData.emailDataC1.subject);
@@ -67,11 +67,11 @@ describe("Gmail Demo Tests Suite", () => {
             expect(response.body.access_token).to.exist;
             let token: string = response.body.access_token;
 
-            cy.listMessagesInGoogleAccount("davit.mkhitaryan.testprofile@gmail.com", token).then((response) => {
+            cy.listMessagesInGoogleAccount(sendEmailData.demoGmailAccountData.user, token).then((response) => {
                 expect(response.body.messages[0]).to.exist;
                 let msgId = response.body.messages[0].id;
 
-                cy.getGmail("davit.mkhitaryan.testprofile@gmail.com", msgId, token).then((response) => {
+                cy.getGmail(sendEmailData.demoGmailAccountData.user, msgId, token).then((response) => {
                     expect(response.body.id).to.eq(msgId);
                     
                     expect(response.body.payload.headers[3].value).to.eq(sendEmailData.emailDataC2.to);
@@ -101,11 +101,11 @@ describe("Gmail Demo Tests Suite", () => {
             expect(response.body.access_token).to.exist;
             let token: string = response.body.access_token;
 
-            cy.listMessagesInGoogleAccount("davit.mkhitaryan.testprofile@gmail.com", token).then((response) => {
+            cy.listMessagesInGoogleAccount(sendEmailData.demoGmailAccountData.user, token).then((response) => {
                 expect(response.body.messages[0]).to.exist;
                 let msgId = response.body.messages[0].id;
 
-                cy.getGmail("davit.mkhitaryan.testprofile@gmail.com", msgId, token).then((response) => {
+                cy.getGmail(sendEmailData.demoGmailAccountData.user, msgId, token).then((response) => {
                     expect(response.body.id).to.eq(msgId);
                     
                     expect(response.body.labelIds[1]).to.eq("SENT");
@@ -135,11 +135,11 @@ describe("Gmail Demo Tests Suite", () => {
             expect(response.body.access_token).to.exist;
             let token: string = response.body.access_token;
 
-            cy.listMessagesInGoogleAccount("davit.mkhitaryan.testprofile@gmail.com", token).then((response) => {
+            cy.listMessagesInGoogleAccount(sendEmailData.demoGmailAccountData.user, token).then((response) => {
                 expect(response.body.messages[0]).to.exist;
                 let msgId = response.body.messages[0].id;
 
-                cy.getGmail("davit.mkhitaryan.testprofile@gmail.com", msgId, token).then((response) => {
+                cy.getGmail(sendEmailData.demoGmailAccountData.user, msgId, token).then((response) => {
                     expect(response.body.snippet).to.contain("Address not found");
                     expect(response.body.payload.headers[22].value).to.eq("Mail Delivery Subsystem <mailer-daemon@googlemail.com>");
                     expect(response.body.labelIds[1]).to.eq("CATEGORY_UPDATES");
